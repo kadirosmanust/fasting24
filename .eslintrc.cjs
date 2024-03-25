@@ -21,7 +21,7 @@ module.exports = {
       "warn",
       { allowConstantExport: true },
     ],
-    "no-console": "warn",
+    "no-console": "off",
     "react/require-default-props": "off",
     "prettier/prettier": ["error", prettierOptions],
     "no-restricted-syntax": [
