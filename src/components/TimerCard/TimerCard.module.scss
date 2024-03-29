@@ -1,0 +1,45 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    width: 90%;
+    max-width: 530px;
+    border-radius: 16px;
+    background-color: var(--color-white);   
+    height: 620px;
+    padding-top: 48px;
+    padding-bottom: 12px;
+    gap: 18px;
+    button{
+        width: 345px;
+    }
+}
+
+.selectItem{
+    display: flex;
+    flex-direction: column;
+    h3{
+        margin:0;
+        color: #9695A8;
+        font-size: 14px;
+        font-weight: 400;
+        margin-left: 12px;
+    }
+}
+.selectsContainer{
+    display: flex;
+    gap: 24px;
+    justify-content: space-evenly;
+    max-width: 345px;
+    width: 100%;
+    align-items: center;
+    padding: 0 24px;
+}
+.title{
+    color: var(--color-black);
+    font-weight: 700;
+    font-size: 24px;
+    font-family: var(--font-raleway);
+    margin: 0;
+}
