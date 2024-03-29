@@ -1,11 +1,23 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import authReducer from './reducers/auth';
+import { authApi } from './services/auth';
+import { fastingApi } from './services/fasting';
+import { unauthenticatedMiddleware } from './middeleware/unauthenticatedMiddleware';
 
 const store = configureStore({
   reducer: {
+    [authApi.reducerPath]: authApi.reducer,
+    [fastingApi.reducerPath]: fastingApi.reducer,
     auth: authReducer,
   },
+
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware().concat([
+      unauthenticatedMiddleware,
+      authApi.middleware,
+      fastingApi.middleware,
+    ]),
 });
 
 export default store;

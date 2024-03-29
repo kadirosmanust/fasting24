@@ -3,11 +3,7 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import type { User } from '@/types/user';
 import type { RootState } from '@/store';
 
-import {
-  getItemFromCookie,
-  removeItemFromCookie,
-  setItemToCookie,
-} from '@/libs/cookieHelper';
+import { get, set, remove } from '@/libs/cookieHelper';
 import {
   getItemFromLocalStorage,
   removeItemFromLocalStorage,
@@ -20,7 +16,7 @@ type AuthState = {
 };
 
 const getInitialState = (): AuthState => {
-  const token = getItemFromCookie('token');
+  const token = get('token');
   const user = getItemFromLocalStorage('user');
 
   if (token && user) {
@@ -48,8 +44,7 @@ const slice = createSlice({
         payload: { user, token },
       }: PayloadAction<{ user: User; token: string }>,
     ) => {
-      setItemToCookie('token', token, { expires: 3 });
-
+      set('token', token, { expires: 3 });
       setItemToLocalStorage('user', JSON.stringify(user));
 
       state.user = user;
@@ -58,7 +53,7 @@ const slice = createSlice({
     clearCreadentials: state => {
       state.user = null;
       state.token = null;
-      removeItemFromCookie('token');
+      remove('token');
       removeItemFromLocalStorage('user');
     },
   },
