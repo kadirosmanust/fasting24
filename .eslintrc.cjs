@@ -34,18 +34,6 @@ module.exports = {
     ],
     "no-unused-vars": [1, { args: "after-used", argsIgnorePattern: "^_" }],
     "no-underscore-dangle": ["error", { allow: ["_id", "_doc"] }],
-    "no-restricted-imports": [
-      "error",
-      {
-        paths: [
-          {
-            name: "react-i18next",
-            message:
-              "Please use next-i18next import instead to avoid hydration errors",
-          },
-        ],
-      },
-    ],
     "no-restricted-exports": "off",
     "@next/next/no-img-element": "off",
     "import/prefer-default-export": "off",
