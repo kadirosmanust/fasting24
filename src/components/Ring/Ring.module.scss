@@ -1,0 +1,49 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    gap: 20px
+
+    svg{
+      position: relative;
+    }
+
+}
+
+.textContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+
+    .durationText{
+        color: black;
+        font-family: var(--font-raleway);
+        font-weight: 700;
+        font-size: 24px;
+        margin: 0;
+    }
+
+    .description{
+        color: #575757;
+        font-family: var(--font-raleway);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 22px;
+        margin: 0;
+    }
+}
+
+
+.progressCircle{
+
+}
