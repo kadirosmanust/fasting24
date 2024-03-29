@@ -1,4 +1,5 @@
 export type User = {
-  status: boolean;
-  user_id: string;
+  id: string;
+  email: string;
+  name: string;
 };

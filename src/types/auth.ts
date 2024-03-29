@@ -1,3 +1,5 @@
+import { User } from './user';
+
 export type RegisterRequest = {
   email: string;
   password: string;
@@ -5,6 +7,6 @@ export type RegisterRequest = {
 };
 
 export type RegisterResponse = {
-  status: boolean;
-  user_id: string;
+  user: User;
+  token: string;
 };
