@@ -1,4 +1,5 @@
 import { expect, test } from 'vitest';
+
 import { calculateDurationInSeconds } from '../libs/timerHelper';
 
 test('calculateDurationInSeconds should return the correct duration in seconds', () => {

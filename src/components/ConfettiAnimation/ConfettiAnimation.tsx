@@ -1,7 +1,9 @@
-import Lottie from 'react-lottie';
-import confettiAnimationData from '@/assets/lottieFiles/confettiAnimation.json';
-import styles from './ConfettiAnimation.module.scss';
 import { useEffect, useState } from 'react';
+import Lottie from 'react-lottie';
+
+import confettiAnimationData from '@/assets/lottieFiles/confettiAnimation.json';
+
+import styles from './ConfettiAnimation.module.scss';
 
 type ConfettiAnimationProps = {
   isStopped: boolean;

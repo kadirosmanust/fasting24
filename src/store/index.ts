@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+
+import { unauthenticatedMiddleware } from './middeleware/unauthenticatedMiddleware';
 import authReducer from './reducers/auth';
 import { authApi } from './services/auth';
 import { fastingApi } from './services/fasting';
-import { unauthenticatedMiddleware } from './middeleware/unauthenticatedMiddleware';
 
 const store = configureStore({
   reducer: {

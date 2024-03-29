@@ -1,11 +1,12 @@
-import styles from './Header.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 import Logo from '@/assets/icons/logo.svg?react';
 import LogoutIcon from '@/assets/icons/logout.svg?react';
 import useAuth from '@/hooks/useAuth';
 import { useAppDispatch } from '@/store';
 import { clearCreadentials } from '@/store/reducers/auth';
-import { useNavigate } from 'react-router-dom';
+
+import styles from './Header.module.scss';
 
 const LogoutButton = () => {
   const dispatch = useAppDispatch();

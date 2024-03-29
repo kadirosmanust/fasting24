@@ -1,9 +1,11 @@
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
 import {
   Fasting,
   FastingDeleteRequest,
   FastingsGetRequest,
 } from '@/types/fasting';
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
 import { RootState } from '..';
 
 const BASE_API_URL = import.meta.env.VITE_BASE_API_URL as string;

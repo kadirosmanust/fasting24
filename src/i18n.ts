@@ -2,8 +2,8 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
 import common from '@/locales/en/common.json';
-import register from '@/locales/en/register.json';
 import fastings from '@/locales/en/fasting.json';
+import register from '@/locales/en/register.json';
 
 export const defaultNS = 'common';
 export const resources = {

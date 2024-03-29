@@ -1,14 +1,14 @@
-import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import type { User } from '@/types/user';
-import type { RootState } from '@/store';
+import { createSlice } from '@reduxjs/toolkit';
 
-import { get, set, remove } from '@/libs/cookieHelper';
+import { get, remove, set } from '@/libs/cookieHelper';
 import {
   getItemFromLocalStorage,
   removeItemFromLocalStorage,
   setItemToLocalStorage,
 } from '@/libs/localStorage';
+import type { RootState } from '@/store';
+import type { User } from '@/types/user';
 
 type AuthState = {
   user: User | null;

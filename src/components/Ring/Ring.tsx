@@ -1,3 +1,6 @@
+import { useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import {
   getDurationFromNowInSeconds,
   getDurationToDisplay,
@@ -5,9 +8,8 @@ import {
   timeRangeToDateRange,
 } from '@/libs/timerHelper';
 import { SelectTime } from '@/types/timer';
-import { useEffect, useMemo, useState } from 'react';
+
 import styles from './Ring.module.scss';
-import { useTranslation } from 'react-i18next';
 
 const radius = 170;
 const strokeWidth = 35;

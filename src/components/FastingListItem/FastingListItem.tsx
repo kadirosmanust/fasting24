@@ -1,16 +1,17 @@
+import 'dayjs/locale/en';
+
+import dayjs from 'dayjs';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import styles from './FastingListItem.module.scss';
+import { useTranslation } from 'react-i18next';
+
 import ThreeDot from '@/assets/icons/threeDot.svg?react';
 import TrashIcon from '@/assets/icons/trashIcon.svg?react';
-import { Fasting } from '@/types/fasting';
-import dayjs from 'dayjs';
-
-import { useDeleteUserFastingMutation } from '@/store/services/fasting';
-import { getDateTagText } from '@/libs/timerHelper';
-
-import 'dayjs/locale/en';
 import useAuth from '@/hooks/useAuth';
-import { useTranslation } from 'react-i18next';
+import { getDateTagText } from '@/libs/timerHelper';
+import { useDeleteUserFastingMutation } from '@/store/services/fasting';
+import { Fasting } from '@/types/fasting';
+
+import styles from './FastingListItem.module.scss';
 
 type FastingListItemProps = {
   fasting: Fasting;

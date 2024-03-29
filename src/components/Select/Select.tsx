@@ -1,7 +1,9 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useRef, useState } from 'react';
-import styles from './Select.module.scss';
+
 import { hours, minutes } from '@/constants/times';
+
+import styles from './Select.module.scss';
 
 type SelectProps = {
   onChange: (value: { hour: string | null; minute: string | null }) => void;

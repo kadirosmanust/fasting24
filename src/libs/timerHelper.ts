@@ -1,7 +1,8 @@
-import { SelectTime } from '@/types/timer';
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
 import { TFunction } from 'i18next';
+
+import { SelectTime } from '@/types/timer';
 
 dayjs.extend(duration);
 

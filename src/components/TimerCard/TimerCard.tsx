@@ -1,23 +1,25 @@
 // import { useState } from 'react';
-import styles from './TimerCard.module.scss';
-import Button from '../Button';
-import Select from '../Select';
-import Ring from '../Ring/Ring';
-import { SelectTime } from '@/types/timer';
+import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import useAuth from '@/hooks/useAuth';
 import {
   getHoursAndMinutes,
   getNowParameter,
   getStartAndEndDate,
 } from '@/libs/timerHelper';
-import { useEffect, useRef, useState } from 'react';
-import ConfettiAnimation from '../ConfettiAnimation';
 import {
   useCreateFastingMutation,
   useGetActiveFastingQuery,
   useUpdateFastingMutation,
 } from '@/store/services/fasting';
-import useAuth from '@/hooks/useAuth';
-import { useTranslation } from 'react-i18next';
+import { SelectTime } from '@/types/timer';
+
+import Button from '../Button';
+import ConfettiAnimation from '../ConfettiAnimation';
+import Ring from '../Ring/Ring';
+import Select from '../Select';
+import styles from './TimerCard.module.scss';
 
 const TimerCard = (): JSX.Element => {
   const { t } = useTranslation('fastings');

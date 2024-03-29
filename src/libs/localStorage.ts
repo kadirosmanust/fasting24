@@ -12,6 +12,6 @@ const removeItemFromLocalStorage = (key: string) => {
 
 export {
   getItemFromLocalStorage,
-  setItemToLocalStorage,
   removeItemFromLocalStorage,
+  setItemToLocalStorage,
 };

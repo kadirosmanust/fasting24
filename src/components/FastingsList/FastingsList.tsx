@@ -1,12 +1,14 @@
+import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+
+import useAuth from '@/hooks/useAuth';
+import { useGetUserFastingsQuery } from '@/store/services/fasting';
+import { Fasting } from '@/types/fasting';
+
 import AnalyticItem from '../AnalyticItem/AnalyticItem';
 import FastingListItem from '../FastingListItem';
 import styles from './FastingsList.module.scss';
-import { Fasting } from '@/types/fasting';
-import { useGetUserFastingsQuery } from '@/store/services/fasting';
-import useAuth from '@/hooks/useAuth';
-import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 type FastingsListProps = {
   showViewAllOption?: boolean;

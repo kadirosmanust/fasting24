@@ -1,19 +1,19 @@
-import Input from '@/components/Input';
-import styles from './Register.module.scss';
-import Button from '@/components/Button';
-import useFormSchema from './useFormSchema';
-import * as z from 'zod';
-import { Controller, useForm } from 'react-hook-form';
-
 import { zodResolver } from '@hookform/resolvers/zod';
-
+import { useEffect } from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import * as z from 'zod';
+
+import Button from '@/components/Button';
+import Input from '@/components/Input';
+import useAuth from '@/hooks/useAuth';
 import { useAppDispatch } from '@/store';
 import { setCredentials } from '@/store/reducers/auth';
 import { useRegisterMutation } from '@/store/services/auth';
-import useAuth from '@/hooks/useAuth';
-import { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
+
+import styles from './Register.module.scss';
+import useFormSchema from './useFormSchema';
 
 const Register = (): JSX.Element => {
   const { user } = useAuth();

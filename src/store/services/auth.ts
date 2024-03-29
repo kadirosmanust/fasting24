@@ -1,5 +1,6 @@
-import type { RegisterRequest, RegisterResponse } from '@/types/auth';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
+import type { RegisterRequest, RegisterResponse } from '@/types/auth';
 
 const BASE_API_URL = import.meta.env.VITE_BASE_API_URL as string;
 

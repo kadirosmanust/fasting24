@@ -1,14 +1,14 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from '@/store';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import Layout from '@/components/Layout';
-import Register from '@/pages/register';
 import Home from '@/pages/home';
+import Register from '@/pages/register';
+import store from '@/store';
 
 import AuthorizedWrapper from './components/HOCs/AuthorizedWrapper';
-import MyFastings from './pages/myFastings';
 import ErrorBoundary from './components/HOCs/ErrorBoundary';
+import MyFastings from './pages/myFastings';
 
 const router = createBrowserRouter([
   {

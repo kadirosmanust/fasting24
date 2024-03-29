@@ -15,7 +15,7 @@ module.exports = {
   ],
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parser: "@typescript-eslint/parser",
-  plugins: ["react-refresh", "prettier"],
+  plugins: ["react-refresh", "prettier","simple-import-sort"],
   rules: {
     "react-refresh/only-export-components": [
       "warn",
@@ -47,5 +47,7 @@ module.exports = {
     "react/jsx-props-no-spreading": "off",
     "jsx-a11y/label-has-associated-control": "off",
     "no-param-reassign": "off",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
   },
 };
