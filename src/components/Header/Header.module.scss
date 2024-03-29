@@ -1,0 +1,46 @@
+.title{
+    color: var(--color-oxford-blue);
+    font-family: var(--font-sen);
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 42px;
+    margin: 0;
+    span{
+        font-weight: 800;
+    }
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 110px;
+    width: 100%;
+    background-color: var(--color-white);
+    gap: 8px;
+    margin-bottom: 60px;
+    padding: relative;
+}
+
+.logout{
+    height: 36px;
+    width: 36px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-background);
+    border: none;
+    border-radius: 100%;
+    position: absolute;
+    right: 20px;
+}
+
+.logoContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+}
