@@ -1,0 +1,45 @@
+.analyticItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 250px;
+    padding: 20px;
+    border-radius: 16px;
+    background-color: var(--color-white);
+    font-family: var(--font-roboto);
+    gap: 18px;
+
+    h3{
+        color:var(--color-black);
+        font-weight: 700;
+        font-size: 24px;
+        margin: 0;
+        padding: 0;
+    }
+
+    p{
+        color: var(--color-description);
+        font-weight: 400;
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+    }
+
+    div{
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+    }
+
+    span{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 28px;
+        width: 30px;
+        height: 42px;
+        text-align: center;
+    }
+}
