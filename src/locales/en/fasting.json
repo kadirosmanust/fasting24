@@ -1,7 +1,7 @@
 {
     "totalFastings": "Total Fastings",
-    "totalCompletedFastings":"Total Completed Fasting",
-    "latestFastings":"My Latest Fastings",
+    "totalCompletedFastings": "Total Completed Fasting",
+    "latestFastings": "My Latest Fastings",
     "noFastings": "You don't have fasting.",
     "viewAll": "View All",
     "minutes": "Minutes",
@@ -23,6 +23,4 @@
     "startFasting": "Start Fasting",
     "startTo": "Start to",
     "endTo": "End to"
-
-
 }

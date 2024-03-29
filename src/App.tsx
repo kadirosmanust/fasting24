@@ -8,6 +8,7 @@ import Home from '@/pages/home';
 
 import AuthorizedWrapper from './components/HOCs/AuthorizedWrapper';
 import MyFastings from './pages/myFastings';
+import ErrorBoundary from './components/HOCs/ErrorBoundary';
 
 const router = createBrowserRouter([
   {
@@ -36,9 +37,11 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
+    <ErrorBoundary>
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
+    </ErrorBoundary>
   );
 }
 
