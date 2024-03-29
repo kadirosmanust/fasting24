@@ -1,0 +1,49 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 530px;
+    gap:48px;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    h2{
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--color-black);
+        margin: 0;
+    }
+
+    button{
+        background-color: transparent;
+        border: none;
+        color: #834CC9;
+        font-size: 16px;
+        cursor: pointer;
+    }
+}
+
+.analyticsContainer{
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+.fastingsList{
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+}
+
+.noFoundText{
+    color: #9695A8;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: 12px;
+}
