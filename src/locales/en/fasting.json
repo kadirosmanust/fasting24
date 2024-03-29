@@ -1,0 +1,28 @@
+{
+    "totalFastings": "Total Fastings",
+    "totalCompletedFastings":"Total Completed Fasting",
+    "latestFastings":"My Latest Fastings",
+    "noFastings": "You don't have fasting.",
+    "viewAll": "View All",
+    "minutes": "Minutes",
+    "hours": "Hours",
+    "deleteButton": "Delete Fasting Session",
+    "justNow": "Just Now",
+    "minutesAgo": "minutes ago",
+    "hoursAgo": "hours ago",
+    "daysAgo": "days ago",
+    "yesterday": "Yesterday",
+    "totalTime": "Total Time",
+    "elapsedTime": "Elapsed Time",
+    "setFastingTime": "Set Fasting Time",
+    "fastingCompleted": "Fasting is Completed!",
+    "youAreFasting": "You are fasting",
+    "readyToFasting": "Ready to Fasting",
+    "startNewFasting": "Start New Fasting Session",
+    "endFasting": "End Fasting",
+    "startFasting": "Start Fasting",
+    "startTo": "Start to",
+    "endTo": "End to"
+
+
+}
