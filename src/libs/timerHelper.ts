@@ -52,10 +52,7 @@ export const getNowParameter = (
   return now[parameter]() < 10 ? '0' + now[parameter]() : '' + now[parameter]();
 };
 
-export const getHoursAndMinutes = (
-  date: Date,
-  parameter: 'minute' | 'hour',
-) => {
+export const getHoursOrMinutes = (date: Date, parameter: 'minute' | 'hour') => {
   const nDate = dayjs(date);
 
   return nDate[parameter]() < 10

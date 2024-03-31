@@ -6,13 +6,11 @@
     width: 90%;
     max-width: 530px;
     border-radius: 16px;
-    background-color: var(--color-white);   
-    height: 620px;
-    padding-top: 48px;
-    padding-bottom: 12px;
+    background-color: var(--color-white);
+    padding: 48px  12px;
     gap: 18px;
     button{
-        width: 345px;
+        max-width: 345px;
     }
 }
 

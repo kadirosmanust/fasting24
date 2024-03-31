@@ -5,6 +5,11 @@
     justify-content: space-between;
     align-items: center;
     background-color: var(--color-white);
+
+    @media (max-width: 420px){
+        gap: 16px;
+        padding: 16px;
+    }
 }
 
 .leftContainer{
@@ -24,6 +29,9 @@
     font-weight: 700;
     margin: 0;
     color: #6567D9;
+    @media (max-width: 420px){
+        font-size: 20px;
+    }
 }
 
 .dateTag{
@@ -39,6 +47,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media (max-width: 420px){
+        font-size: 10px;
+        padding: 4px 8px;
+    }
 }
 
 .time{
@@ -46,6 +59,10 @@
     font-weight: 400;
     color: var(--color-neutral-gray-400);
     margin: 0;
+
+    @media (max-width: 420px){
+        font-size: 12px;
+    }
 }
 
 .contextButton{
@@ -65,9 +82,20 @@
         background-color: #04040410;
     }
     
+    
     [aria-disabled="true"]{
         cursor: not-allowed;
     }
+
+    @media (max-width: 420px){
+        height: 36px;
+        width: 36px;
+        svg{
+            width: 24px;
+            height: 24px;
+        }
+    }
+   
 }
 
 .contextMenu{
@@ -83,6 +111,11 @@
     padding: 4px;
     min-width: 204px;
     background-color: white;
+
+    @media (max-width: 420px){
+        top: 36px;
+        right: 12px;
+    }
 }
 
 .deleteButton{
@@ -103,6 +136,11 @@
     &:hover{
         background-color: #04040410;
     }   
+
+    @media (max-width: 420px){
+        font-size: 12px;
+        padding: 8px 4px;
+    }
 }
 
 .error{

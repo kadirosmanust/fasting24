@@ -1,60 +1,71 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import useWindowSize from '@/hooks/useWindowSize';
 import {
+  calculateDurationInSeconds,
   getDurationFromNowInSeconds,
   getDurationToDisplay,
-  parseDateAndCalculateDuration,
-  timeRangeToDateRange,
 } from '@/libs/timerHelper';
-import { SelectTime } from '@/types/timer';
+import { Fasting } from '@/types/fasting';
 
 import styles from './Ring.module.scss';
 
-const radius = 170;
-const strokeWidth = 35;
-
 type RingProps = {
-  timeRange: SelectTime[];
-  isStarted: boolean;
   onDurationCompleted: () => void;
-  isCompleted: boolean;
+  fastingData: Partial<Fasting> | null;
 };
 
-const Ring = ({
-  timeRange,
-  isStarted,
-  onDurationCompleted,
-  isCompleted,
-}: RingProps) => {
+const Ring = ({ onDurationCompleted, fastingData }: RingProps) => {
   const [progressPercent, setProgressPercent] = useState(100);
   const { t } = useTranslation('fastings');
-  const totalDuration = useMemo(
-    () => parseDateAndCalculateDuration(timeRange),
-    [timeRange],
-  );
+  const [radius, setRadius] = useState(170);
+  const [strokeWidth, setStrokeWidth] = useState(35);
+  const windowSize = useWindowSize();
+  useEffect(() => {
+    if (windowSize.width && windowSize.width < 400) {
+      setRadius(130);
+      setStrokeWidth(25);
+    } else {
+      setRadius(170);
+      setStrokeWidth(35);
+    }
+  }, [windowSize]);
 
-  const [duration, setDuration] = useState(
-    parseDateAndCalculateDuration(timeRange),
-  );
+  const totalDuration = useMemo(() => {
+    if (fastingData && fastingData.startDate && fastingData.endDate) {
+      return calculateDurationInSeconds(
+        fastingData.startDate,
+        fastingData.endDate,
+      );
+    }
+    return 0;
+  }, [fastingData]);
+
+  const [duration, setDuration] = useState(totalDuration);
 
   useEffect(() => {
-    if (!isStarted) {
+    if (!fastingData?.isActive) {
       setProgressPercent(100);
     }
-  }, [isStarted]);
+  }, [fastingData]);
 
   useEffect(() => {
-    const dateRange = timeRangeToDateRange(timeRange);
-
-    const wastedDuration = getDurationFromNowInSeconds(dateRange.startDate);
-    const totalDuration = parseDateAndCalculateDuration(timeRange);
-
-    setDuration(totalDuration - wastedDuration);
-  }, [timeRange]);
+    if (fastingData && fastingData.startDate && fastingData.endDate) {
+      const totalDuration = calculateDurationInSeconds(
+        fastingData.startDate,
+        fastingData.endDate,
+      );
+      const wastedDuration = getDurationFromNowInSeconds(fastingData.startDate);
+      const diff = totalDuration - wastedDuration;
+      if (diff > 0) {
+        setDuration(totalDuration - wastedDuration);
+      }
+    }
+  }, [fastingData]);
 
   useEffect(() => {
-    if (isStarted) {
+    if (fastingData?.isActive) {
       const interval = setInterval(() => {
         if (duration === 1) {
           clearInterval(interval);
@@ -63,40 +74,44 @@ const Ring = ({
           onDurationCompleted();
           return;
         }
-        setDuration(prevDuration => prevDuration - 1);
+        const wastedDuration = getDurationFromNowInSeconds(
+          fastingData.startDate!,
+        );
+        const diff = totalDuration - wastedDuration;
+        setDuration(diff);
         setProgressPercent(((duration - 1) / totalDuration) * 100);
       }, 1000);
 
       return () => clearInterval(interval);
     }
-  }, [duration, isStarted, onDurationCompleted, totalDuration]);
+  }, [duration, fastingData, onDurationCompleted, totalDuration]);
 
   const progress = progressPercent * 0.6;
   const circumference = 2 * Math.PI * radius;
   const progressValue = ((100 - progress) / 100) * circumference;
 
   const descText = () => {
-    if (isCompleted) {
+    if (fastingData?.isCompleted) {
       return t('totalTime');
     }
-    if (isStarted) {
+    if (fastingData?.isActive) {
       return `${t('elapsedTime')} %${progressPercent.toFixed(0)}`;
     }
     return t('setFastingTime');
   };
 
   const lineColor = useMemo(() => {
-    if (isCompleted) {
+    if (fastingData?.isCompleted) {
       return ['#52D13D', '#89C36D', '#E6FFDA'];
     }
-    if (isStarted) {
+    if (fastingData?.isActive) {
       return ['#FF6B00', '#FFCB8D', '#FFDCC2'];
     }
     return ['#6567D9', '#B4B5F9', '#D6D6FF'];
-  }, [isCompleted, isStarted]);
+  }, [fastingData]);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid="ring">
       <div className={styles.textContainer}>
         <p className={styles.description}>{descText()}</p>
         <h1 className={styles.durationText}>

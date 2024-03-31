@@ -5,30 +5,18 @@ import confettiAnimationData from '@/assets/lottieFiles/confettiAnimation.json';
 
 import styles from './ConfettiAnimation.module.scss';
 
-type ConfettiAnimationProps = {
-  isStopped: boolean;
-};
-
-const ConfettiAnimation = ({
-  isStopped,
-}: ConfettiAnimationProps): JSX.Element => {
-  const [isDone, setIsDone] = useState(true);
+const ConfettiAnimation = (): JSX.Element => {
+  const [isDone, setIsDone] = useState(false);
 
   useEffect(() => {
-    if (!isStopped) {
-      setTimeout(() => {
-        setIsDone(true);
-      }, 5000);
-    }
-
-    if (isStopped) {
-      setIsDone(false);
-    }
-  }, [isStopped]);
+    setTimeout(() => {
+      setIsDone(true);
+    }, 9000);
+  }, []);
 
   const defaultOptions = {
-    loop: true,
-    autoplay: true,
+    loop: !isDone,
+    autoplay: !isDone,
     animationData: confettiAnimationData,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice',
@@ -36,7 +24,7 @@ const ConfettiAnimation = ({
   };
   return (
     <div className={styles.container}>
-      <Lottie options={defaultOptions} isStopped={isStopped || isDone} />
+      {!isDone && <Lottie options={defaultOptions} isStopped={isDone} />}
     </div>
   );
 };

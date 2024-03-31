@@ -4,6 +4,11 @@
     align-items: center;
     width: 100%;
     gap: 52px;
+
+    @media (max-width: 420px){
+        gap: 20px;
+    }
+
 }
 
 .title{

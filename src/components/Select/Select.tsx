@@ -41,6 +41,27 @@ const Select = ({ value, onChange, disabled }: SelectProps): JSX.Element => {
     };
   }, []);
 
+  useEffect(() => {
+    if (isOpen) {
+      const selected = document.querySelectorAll(`.${styles.selected}`);
+      selected?.forEach(s => {
+        const optionItemList = s.parentElement;
+        if (optionItemList) {
+          const selectedRect = s.getBoundingClientRect();
+          const containerRect = optionItemList!.getBoundingClientRect();
+          optionItemList!.scrollTo({
+            top:
+              selectedRect.top -
+              containerRect.top -
+              containerRect.height / 2 +
+              selectedRect.height / 2,
+            behavior: 'smooth',
+          });
+        }
+      });
+    }
+  }, [isOpen]);
+
   const handleWithHour = (hour: string) => {
     setSelectedHour(hour);
     onChange({
@@ -83,7 +104,7 @@ const Select = ({ value, onChange, disabled }: SelectProps): JSX.Element => {
               .map((option, idx) => (
                 <div
                   key={idx}
-                  className={styles.option}
+                  className={`${styles.option} ${selectedHour === option.value ? styles.selected : ''}`}
                   onClick={() => handleWithHour(option.value)}
                 >
                   {option.label}
@@ -96,7 +117,7 @@ const Select = ({ value, onChange, disabled }: SelectProps): JSX.Element => {
               .map((option, idx) => (
                 <div
                   key={idx}
-                  className={styles.option}
+                  className={`${styles.option} ${selectedMinute === option.value ? styles.selected : ''}`}
                   onClick={() => handleWithMinute(option.value)}
                 >
                   {option.label}

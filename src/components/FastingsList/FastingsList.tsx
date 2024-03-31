@@ -59,11 +59,13 @@ const FastingsList = ({
       <div className={styles.analyticsContainer}>
         <AnalyticItem
           icon="⌛"
+          key="totalFastings"
           title={oldFastings ? oldFastings.length.toString() : '0'}
           description={t('totalFastings')}
         />
         <AnalyticItem
           icon="🎉"
+          key="completedFastings"
           title={completedFastings?.toString() ?? '0'}
           description={t('totalCompletedFastings')}
         />
