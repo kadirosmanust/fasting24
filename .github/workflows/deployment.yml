@@ -1,37 +1,44 @@
-name: Build and Deploy
+name: pnpm Example Workflow
 on:
   push:
-    tags:
-      - 'v*'
 jobs:
-  test: # This job is for testing the deployment process
-    runs-on: ubuntu-latest
+  test:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        node-version: [18]
     steps:
     - uses: actions/checkout@v3
-    - name: Install Dependencies
-      uses: pnpm/action-setup@v3
+    - uses: pnpm/action-setup@v3
       with:
         version: 8
-        run: pnpm install
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'pnpm'
+    - name: Install dependencies
+      run: pnpm install
     - name: Test Code
-      uses: pnpm/action-setup@v3
-      with:
-        version: 8
-        run: pnpm test
-
-  deploy: # This job is for deploying the application
-    runs-on: ubuntu-latest
+      run: pnpm test
+  build:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        node-version: [18]
     steps:
     - uses: actions/checkout@v3
-    - name: Install Dependencies
-      uses: pnpm/action-setup@v3
+    - uses: pnpm/action
       with:
         version: 8
-        run: pnpm install
-    - name: Deploy Application
-      uses: pnpm/action-setup@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
       with:
-        version: 8
-        run: pnpm run build
-    - name: Deploy to ...
-      run: echo "Deploying to the server"
+        node-version: ${{ matrix.node-version }}
+        cache: 'pnpm'
+    - name: Install dependencies
+      run: pnpm install
+    - name: Build 
+      run: pnpm build
+    - name: Deployment
+      run: echo "Deploying..."
