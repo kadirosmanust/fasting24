@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "prepare": "husky",
     "postinstall": "pnpm run prepare",
-    "test": "vitest  --run",
+    "test": "vitest --silent --run",
     "test:changed": "vitest --silent --run --changed",
     "covarage": "vitest --silent --run --coverage",
     "changed:coverage": "vitest --silent  --run --coverage --changed"
